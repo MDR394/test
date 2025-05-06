@@ -51,4 +51,4 @@ jobs:
       - name: Deploy helm chart
         uses: llm-team-org/aws-eks-helm-docker@helm-test
         with:
-          exec: helm upgrade --install ${{env.RELEASE_NAME}}  helm/ -n ${{env.NAMESPACE}} --create-namespace
+          exec: helm upgrade --install ${{env.RELEASE_NAME}}  helm/ -n ${{env.NAMESPACE}}
