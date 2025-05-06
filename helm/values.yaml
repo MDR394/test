@@ -1,5 +1,5 @@
 image:
-  repository: yourdockerhubusername/test
+  repository: mdrch/test
   tag: latest
 
 service:

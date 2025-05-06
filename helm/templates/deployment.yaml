@@ -12,6 +12,8 @@ spec:
       labels:
         app: test
     spec:
+      nodeSelector:
+        project: dev
       containers:
         - name: test
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
