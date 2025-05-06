@@ -3,6 +3,6 @@ image:
   tag: latest
 
 service:
-  type: LoadBalancer
+  type: NodePort
   port: 443
   targetPort: 3000
