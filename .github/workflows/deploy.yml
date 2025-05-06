@@ -46,9 +46,9 @@ jobs:
         env:
           IMAGE_TAG: ${{ steps.commit.outputs.short }}
         run: |
-          sed -i.bak "s|tag:.*|tag: $IMAGE_TAG|g" deployment/values.yaml
+          sed -i.bak "s|tag:.*|tag: $IMAGE_TAG|g" helm/values.yaml
 
       - name: Deploy helm chart
         uses: llm-team-org/aws-eks-helm-docker@helm-test
         with:
-          exec: helm upgrade --install ${{env.RELEASE_NAME}}  deployment/ -n ${{env.NAMESPACE}} --create-namespace
+          exec: helm upgrade --install ${{env.RELEASE_NAME}}  helm/ -n ${{env.NAMESPACE}} --create-namespace
