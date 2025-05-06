@@ -1,0 +1,8 @@
+image:
+  repository: yourdockerhubusername/test
+  tag: latest
+
+service:
+  type: LoadBalancer
+  port: 80
+  targetPort: 3000
