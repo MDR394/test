@@ -18,7 +18,7 @@ jobs:
 
       - name: Build and Push Docker Image
         run: |
-          IMAGE=yourdockerhubusername/test:latest
+          IMAGE=${{ secrets.DOCKERHUB_USERNAME }}/test:latest
           docker build -t $IMAGE .
           docker push $IMAGE
 
@@ -37,5 +37,5 @@ jobs:
 
           helm upgrade --install test ./helm \
             --namespace dev \
-            --set image.repository=yourdockerhubusername/test \
+            --set image.repository=${{ secrets.DOCKERHUB_USERNAME }}/test \
             --set image.tag=latest
