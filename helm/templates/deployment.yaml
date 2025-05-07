@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: test
+  name: {{ .Values.pod.label }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.pod.replicaCount }}
   selector:
     matchLabels:
-      app: test
+      app: {{ .Values.pod.label }}
   template:
     metadata:
       labels:
-        app: test
+        app: {{ .Values.pod.label }}
     spec:
       nodeSelector:
         project: dev
       imagePullSecrets:
-        - name: {{ .Values.image.pullSecret }}  # Reference to the secret in values.yaml
+        - name: {{ .Values.image.pullSecret }} # Reference to the secret in values.yaml
       containers:
-        - name: test
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"  # Reference to image and tag in values.yaml
-          imagePullPolicy: {{ .Values.image.pullPolicy }}  # Reference to pull policy in values.yaml
+        - name: {{ .Values.pod.label }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}" # Reference to image and tag in values.yaml
+          imagePullPolicy: {{ .Values.image.pullPolicy }} # Reference to pull policy in values.yaml
           ports:
             - containerPort: 3000

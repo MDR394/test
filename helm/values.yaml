@@ -4,6 +4,10 @@ image:
   pullPolicy: Always
   pullSecret: dockerhub-secret
 
+pod:
+  replicaCount: 2
+  label: test
+
 service:
   type: NodePort
   port: 443
