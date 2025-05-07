@@ -14,8 +14,11 @@ spec:
     spec:
       nodeSelector:
         project: dev
+      imagePullSecrets:
+        - name: {{ .Values.image.pullSecret }}  # Reference to the secret in values.yaml
       containers:
         - name: test
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"  # Reference to image and tag in values.yaml
+          imagePullPolicy: {{ .Values.image.pullPolicy }}  # Reference to pull policy in values.yaml
           ports:
             - containerPort: 3000

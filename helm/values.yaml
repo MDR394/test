@@ -1,6 +1,8 @@
 image:
-  repository: mdrch/test
+  repository: mdrch/frontend
   tag: latest
+  pullPolicy: Always
+  pullSecret: dockerhub-secret
 
 service:
   type: NodePort
