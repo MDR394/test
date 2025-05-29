@@ -11,4 +11,4 @@ pod:
 service:
   type: NodePort
   port: 443
-  targetPort: 3000
+  targetPort: 3001
